@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 用于唯一标识当前的映射文件 -->
+<mapper namespace="com.ts.sso.mapper.UserMapper">
+	
+	<select id="findUserByUsername" resultType="User">
+	select * from user where username=#{username}
+	</select>
+	
+	<select id="findModuleNameByUserId" resultType="string">
+	 select module from module where module_id in(
+
+     select module_id from roleId_moduleId where roleId in(
+
+     select role_id from user where user_id=#{userId}
+     )
+     )
+	</select>
+	
+</mapper>

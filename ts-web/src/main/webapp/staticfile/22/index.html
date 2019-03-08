@@ -1,0 +1,676 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="css/swiper.min.css">
+<style>
+	body{margin: 0;}
+	button{border: none;cursor: pointer;outline: none;}
+	h1,h2,h3,dd,dl,p{margin:0 auto;font-weight: normal;}
+	img{display:block;}/*去掉无故空隙*/
+	
+	
+	body,h1,h2,h3,p{margin:0 auto;font-weight: normal;}
+	a{text-decoration: none;color: black;}
+	img{display:block;}
+	/*导航栏*/
+	.daohang{width: 1920px;margin: 0 auto;margin-top:20px;}
+	.daohang a{color: black;}
+	.daohang a:hover{color: red;}
+	.daohangwenzi{width:1320px;margin:0 auto;}
+		/*导航栏模块1*/
+		.daohang1_zuo p{float: left;padding-right: 4px;}
+		.daohang1_you{float: right;}
+		.daohang1_you p{float: left;padding-right: 10px;}
+		/*导航栏模块2*/
+		.daohang2{width:1320px; height: 160px; clear: left;}
+		.daohang2_zuo{width:510px;height: 160px;float: left;}
+		.daohang2_logo{width:300px;height: 160px;float: left; }
+		.daohang2_logo img{margin: 40px auto 0 auto;}
+		
+		.daohang2_you{width:510px;;height: 160px;float: left;}
+		.daohang2_you_da{width: 400px;margin-top: 88px;float: right;}
+		.daohang2_you_sousuokuan{height: 30px;}
+		.daohang2_you_kuan{position: relative;}
+		.daohang2_you_kuan p{color: #908989;line-height: 30px;margin-left: 15px;}
+		
+		.daohang2_you_kuan input{border:2px solid #908989;outline:none;
+								background-color: white;
+								color: #666;
+								line-height: 30px;
+								padding-left: 10px;
+								border-radius:30px;width: 320px;height: 30px;}
+		.daohang2_you_kuan button{width: 50px;height: 38px;overflow: hidden;padding: 0;background-color: #908989;border-radius:30px;}
+		
+		.daohang2_you_daohang{margin-top: 10px;}
+		.daohang2_you_daohang p{float:left;height: 16px;margin-left: 15px;font-size:14px;}
+		/*导航栏模块3*/
+		.daohang3{height: 60px;background-color: black;}
+		.daohang3_daohang{width: 1320px;margin: 0 auto;}
+		.daohang3_daohang text{float: left;background-color: aqua;width: 60px;}
+		.daohang3_daohang a{color: white;text-align: center;line-height: 60px;padding:0 52px;position:relative;}
+		.daohang3_daohang span{position: absolute;width: 8px;height:2px;background-color:white;top:24px;left:33px;transition: 0.3s;opacity: 0;margin: 0 auto;}
+		.daohang3_daohang a:hover{font-weight: bold;}
+		.daohang3_daohang a:hover span{opacity: 1;width: 100px;}
+		
+	
+	/*banner*/
+	.banner{width: 1920px;height: 700px;margin: 20px auto;}
+	
+	.swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+	/*优惠劵*/
+	.yhj{width: 1320px;height: 300px;margin: 40px auto;}
+	.yhj div{width: 420px;height:300px;margin-right: 20px;float: left; }
+	.yhj div:hover{box-shadow: 0px 16px 18px 0px rgba(171, 72, 83, 0.47);}
+	.yhj div:nth-child(1){margin-left: 10px;}
+	.yhj div:nth-child(3){margin-right: 0px;}
+	
+	/*专题*/
+	.zhuanti{width: 1290px;height: 60px;margin: 40px auto;}
+	.heitiao1{width: 440px;height: 60px;float: left}
+	.heitiao1 div{width: 410px; height: 2px;background-color:black;margin: 29px 30px 29px 0px;}
+	.biaoti{width: 410px;height: 56px;float: left;border: black 2px solid;text-align: center;line-height: 56px;color: black;}
+	.heitiao2{width: 330px;height: 60px;float: left}
+	.heitiao2 div{width: 300px; height: 2px;background-color:black;margin: 29px 0px 29px 30px;}
+	.mose{width: 100px;height: 60px; float: left}
+	.mose div{line-height: 60px;text-align: center;}
+	/*人气单品*/
+	.rqdp{width: 1320px;height: 1120px;margin: 0 auto;}
+	.rqdp_1{width: 1320px;height: 400px;margin-bottom: 10px;}
+	.rqdp_11{width: 255px;height: 340px;margin-right: 10px;float: left; }
+	.rqdp_12{width: 525px;height: 400px;margin-right: 10px;float: left; background-color: red;}
+	.rqdp_13{width: 255px;height: 340px;float: left; background-color: red;}
+	.rqdp_text{width: 255;height:60px;background-color:#ADADAD;text-align: center;line-height: 30px;}
+	
+	.rqdp_2{width: 1320px;height: 400px;margin-bottom: 10px;}
+	.rqdp_3{width: 1320px;height: 300px;}
+	
+	
+	.rqdp_11 div{overflow: hidden;}
+	.rqdp_11 img{transition: 0.3s;}
+	.rqdp_11:hover img{transform: scale(1.2);}
+	
+	.rqdp_12{overflow: hidden;}
+	.rqdp_12 img{transition: 0.3s;}
+	.rqdp_12:hover img{transform: scale(1.2);}
+	
+	.rqdp_13 div{overflow: hidden;}
+	.rqdp_13 img{transition: 0.3s;}
+	.rqdp_13:hover img{transform: scale(1.2);}
+	
+	.rqdp_3 div{overflow: hidden;}
+	.rqdp_3 img{transition: 0.3s;}
+	.rqdp_3:hover img{transform: scale(1.2);}
+	/*潮流在线*/
+	.clzx{width: 1320px;height: 1160px;margin: 0 auto;}
+	.clzx_top{width: 1320px;height: 600px;background-color: blue;}
+	.clzx_bottom{width: 1318px;height:560px;
+	  			border-left: black solid 1px;
+				border-right: black solid 1px;overflow: hidden;}
+	.clzx_tu1{width: 645px;height: 550px;margin: 10px 10px 0px 9px;float: left;background-color: red;transition: 0.6s;}
+	.clzx_tu2{width: 645px;height: 550px;margin: 10px 9px 0px 0px;float: left;background-color: red;transition: 0.6s;}
+	.clzx_tu1:hover{transform: scale(1.2);}
+	.clzx_tu2:hover{transform: scale(1.2);}
+	
+	.clzx_top{overflow: hidden;}
+	.clzx_top img{transition: 0.3s;}
+	.clzx_top:hover img{transform: scale(1.2);}
+	/*新品上架*/
+	.xpsj{width: 1330px;height: 4050px;margin: 0 auto;
+			border-left: black 1px solid;
+			border-right: black 1px solid;
+			}
+	.xpsj_1 div:nth-child(1){width: 420px;height: 650px;margin:0px 15px 30px 4px; float: left; background-color: red;}
+	.xpsj_1 div:nth-child(2){width: 420px;height: 650px;margin:0px 15px 30px 15px;float: left;background-color: red;}
+	.xpsj_1 div:nth-child(3){width: 420px;height: 650px;margin:0px 4px 30px 15px;float: left;background-color: red;}
+	
+	.xpsj_11 {overflow: hidden;}
+	.xpsj_11 img:nth-child(1){transition: 0.3s;}
+	.xpsj_11:hover img{transform: scale(1.1);}
+	
+	.xpsj_12 {overflow: hidden;}
+	.xpsj_12 img:nth-child(1){transition: 0.3s;}
+	.xpsj_12:hover img{transform: scale(1.1);}
+	
+	.xpsj_13 {overflow: hidden;}
+	.xpsj_13 img:nth-child(1){transition: 0.3s;}
+	.xpsj_13:hover img{transform: scale(1.1);}
+	
+	/*精选品牌*/
+	.jxpp{width: 1320px;height: 380px;margin: 0 auto;margin-bottom:10px;}
+	.jxpp_1 div{width: 252px;height:120px;margin-right:10px;float: left;margin-bottom:10px;}
+	.jxpp_1 div:nth-child(1){padding-left:10px;margin-top:none;}
+	.jxpp_2 div:nth-child(2){margin-top:10px;}
+	
+	.jxpp_11 {overflow: hidden;}
+	.jxpp_11 img:nth-child(1){transition: 0.3s;}
+	.jxpp_11:hover img{transform: scale(1.2);}
+	.jxpp_12 {overflow: hidden;}
+	.jxpp_12 img:nth-child(1){transition: 0.3s;}
+	.jxpp_12:hover img{transform: scale(1.2);}
+	.jxpp_13 {overflow: hidden;}
+	.jxpp_13 img:nth-child(1){transition: 0.3s;}
+	.jxpp_13:hover img{transform: scale(1.2);}
+	.jxpp_14 {overflow: hidden;}
+	.jxpp_14 img:nth-child(1){transition: 0.3s;}
+	.jxpp_14:hover img{transform: scale(1.2);}
+	.jxpp_15 {overflow: hidden;}
+	.jxpp_15 img:nth-child(1){transition: 0.3s;}
+	.jxpp_15:hover img{transform: scale(1.2);}
+	
+	 
+	.jxpp_2{width: 1320px;height: 750px;margin: 0 auto;}
+	.jxpp_4{width: 400px;height: 550px;margin:0px 15px 30px 15px;float: left;position: relative; }
+	.jxpp_5{width:200px;height:200px;border-radius: 100px;margin: 0px auto;position: absolute;bottom: -100px;left:100px; overflow: hidden;}
+	
+	.jxpp_4 {}
+	.jxpp_4 img:nth-child(1){transition: 0.3s;}
+	.jxpp_4:hover img{transform: scale(1.2);}
+	
+	/*.jxpp{width: 1290px;height: 360px;margin: 0 auto;background-color: aqua;}
+	.jxpp_1 div{width: 228px;height: 100px;margin: 0px 15px 30px 15px;float: left;background-color: red;}
+	
+	.jxpp_2{width: 1290px;height: 750px;margin: 0 auto;
+			background-color: aqua;}
+	.jxpp_4{width: 400px;height: 750px;margin: 0 15px 30px 15px;float: left;background-color: red;}
+	.jxpp_5{width:100px;height:100px;border-radius: 50px;margin: 700px auto;background-color: blue;}*/
+	/*页尾背景*/
+	
+	
+	/*页脚*/
+		.heitiao{background-color: black;height: 10px;position: relative;}
+	    .yewei_beijing{width:100%; height: 500px;position: absolute;margin: 0 auto;
+			top:-500px;
+			z-index: -1;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-color: red;
+			background-image: url(img/jxpp/ban.png);}
+		.yejiao{height: 500px;background-color: black;margin-top: 10px;}
+		.yejiao_text{width: 1320px;margin: 0 auto;}
+		.baitiao{width: 1320px;height: 2px;background-color: white;}
+		
+		/*页脚模块1*/
+		.yejiao1 {height: 100px;width: 1200px;margin: 0 auto;position:relative;}
+		.yejiao1 a{text-decoration: none;color: red;}
+		.yejiao1_text{color:white;float: left;width:400px;text-align: center;margin-top: 20px;}
+		.tupian{width: 140px;float: left;}
+		.tupian img{float: right;}
+		.text{width:200px;float: left;line-height: 54px;}
+		/*页脚模块2*/
+		.yejiao2{width: 1320px;height: 220px;}
+		.zhuti{font-weight: bold;}
+		.yejiao2 p{color: white;margin-top: 10px;}
+		.yejiao_zhengwen{float: left;margin-left: 100px;}
+		.yejiao2_quyu{width: 1100px;margin: 50px auto;}
+		.baitiao1{width: 1320px;height: 2px;background-color: white;}
+		/*页脚模块3*/
+		.yejiao3{margin-top: 30px;}
+		.yejiao3 p{color: white;}
+		.yejiao3_banquan1{margin: 0 auto;width: 400px;}
+		.yejiao3_banquan1 p{margin-left: 10px;float: left;}
+		.yejiao3_banquan2{clear: left;width: 750px;margin: 0 auto;}
+		.yejiao3_banquan2 p{margin-left: 4px;float: left;margin-top: 10px;}
+	
+	
+	
+</style>
+
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<!--导航栏-->
+<div class="daohang">
+	<div class="daohangwenzi">
+	<div class="daohang1">
+		<div class="daohang1_zuo">
+			<a href=""><p>中文</p></a>
+			<a href=""><p><span>&nu;</span></p></a>
+			<a href=""><p>SEPTEMBER</p></a>
+			<a href=""><p>九月</p></a>
+		</div>
+		<div class="daohang1_you">
+			<p>Hi<a href="">[登录]</a><a href="">[注册]</a></p>
+			<p>&#124;</p>
+			<a href=""><p>MY九月<span>&nu;</span></p></a>
+			<p>&#124;</p>
+			<a href=""><p>购物车</p></a>
+			<p>&#124;</p>
+			<a href=""><p>收藏夹</p></a>
+			<p>&#124;</p>
+			<a href=""><p>在线客服</p></a>
+			<p>&#124;</p>
+			<a href=""><p>手机端</p></a>
+		</div>
+	</div>
+	
+	<div class="daohang2">
+		<div class="daohang2_zuo"></div>
+		
+		<div  class="daohang2_logo">
+			<img src="images/logo.png" height="100px">
+		</div>
+		
+		<div  class="daohang2_you">
+			
+			<div class="daohang2_you_da">
+				<div class="daohang2_you_sousuokuan">
+					<div class="daohang2_you_kuan">
+					<input type="text" value="BALENCIAGA老爹鞋限时折扣">
+						
+					<button>
+						<div class="tijiao">搜索</div>
+					</button>
+					</div>
+					
+				</div>
+				<div class="daohang2_you_daohang">
+					<a href=""><p>BALENCIAGA</p></a>			
+					<a href=""><p>VANS</p>	</a>			
+					<a href=""><p>CHANL</p>	</a>				
+					<a href=""><p>卫衣</p></a>					
+					<a href=""><p>靴子</p></a>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+	</div>
+	<div class="daohang3">
+		<div class="daohang3_daohang">
+			<a href="index.html" style="color: red;">&nbsp;&nbsp;首页<span></span></a>				
+			<a href="qbsp.html" >所有商品<span></span></a>					
+			<a href="pinpaizhenghe.html">品牌一览<span></span></a>						
+			<a href="">&nbsp;&nbsp;女士<span></span></a>					
+			<a href="">&nbsp;&nbsp;男士<span></span></a>	
+			<a href="xpss.html">新品上市<span></span></a>	
+			<a href="clrm.html">潮流热卖<span></span></a>
+			<a href="salezhenghe.html">&nbsp;&nbsp;SALE<span></span></a>
+				
+		</div>
+		
+	</div>
+	
+</div>
+<!--banner-->
+	<div class="banner">
+	
+		<div class="swiper-container">
+   			 <div class="swiper-wrapper">
+      			<div class="swiper-slide"><img src="img/ban01/shouye_banner01.png"></div>
+     			 <div class="swiper-slide"><img src="img/ban01/shouye_banner01.png"></div>
+     			 <div class="swiper-slide"><img src="img/ban01/shouye_banner01.png"></div>
+   			 </div>
+   			 <!-- Add Pagination -->
+   			 <div class="swiper-pagination"></div>
+   			 <!-- Add Arrows -->
+   			 <div class="swiper-button-next"></div>
+    		<div class="swiper-button-prev"></div>
+  		</div>
+		
+	</div>
+<!--优惠劵-->
+<div class="yhj">
+	<div><a href="#"><img src="img/youhui/youhui_01.png" ></a></div>
+	<div><a href="#"><img src="img/youhui/youhui_02.png" ></a></div>
+	<div><a href="#"><img src="img/youhui/youhui_03.png" ></a></div>
+</div>
+<!--人气单品-->
+	<!--人气单品专题-->
+	<div class="zhuanti">
+		<div class="heitiao1">
+			<div></div>
+		</div>
+		<div class="biaoti">
+			<p>人气单品</p>
+		</div>
+		<div class="heitiao2">
+			<div></div>
+		</div>
+		<div class="mose">
+			<a href=""><div>More&gt;</div></a>
+		</div>
+	</div>
+	<!--人气单品内容-->
+	<div class="rqdp">
+		
+			<div class="rqdp_1">
+				<div class="rqdp_11"><div><a href=""><img src="img/rqdp/rqdp1_dickies.png"></a></div>
+					<div class="rqdp_text">
+						<a href=""><p>Dickies</p></a>
+						<a href=""><p>¥379</p></a>
+					</div>
+				</div>
+				<div class="rqdp_11"><div><a href=""><img src="img/rqdp/rqdp1_puma.png"></a></div>
+					<div class="rqdp_text">
+						<a href=""><p>PUMA</p></a>
+						<a href=""><p>¥429</p></a>
+					</div>
+				</div>
+				<div class="rqdp_12"><a href=""><img src="img/rqdp/rqdp1_ban.png"></a>
+				</div>
+				<div class="rqdp_13"><div><a href=""><img src="img/rqdp/rqdp1_zglin.png"></a></div>
+					<div class="rqdp_text">
+						<a href=""><p>中国李宁</p></a>
+						<a href=""><p>¥499</p></a>
+					</div>
+				</div>
+			</div>
+			<div class="rqdp_2">
+				<div class="rqdp_12"><a href=""><img src="img/rqdp/rqdp2_ban.png"></a>
+					
+				</div>
+				<div class="rqdp_11"><div><a href=""><img src="img/rqdp/rqdp2_lnbr.png"></a></div>
+					<div class="rqdp_text">
+						<a href=""><p>LNBR</p></a>
+						<a href=""><p>¥279</p></a>
+					</div>
+				</div>
+				<div class="rqdp_11"><div><a href=""><img src="img/rqdp/rqdp2_kuangw.png"></a></div>
+					<div class="rqdp_text">
+						<a href=""><p>匡威</p></a>
+						<a href=""><p>¥379</p></a>
+					</div>
+				</div>
+				<div class="rqdp_13"><div><a href=""><img src="img/rqdp/rqdp2_puma.png"></a></div>
+					<div class="rqdp_text">
+						<a href=""><p>PUMA</p></a>
+						<a href=""><p>¥579</p></a>
+					</div>
+				</div>
+			</div>
+			<div class="rqdp_3">
+				<div><a href=""><img src="img/rqdp/rqdp3_ban.png"></a></div>
+			</div>
+
+	</div>
+	
+	
+<!--潮流在线-->
+	<!--潮流在线专题-->
+	<div class="zhuanti">
+		<div class="heitiao1">
+			<div></div>
+		</div>
+		<div class="biaoti">
+			<p>潮流在线</p>
+		</div>
+		<div class="heitiao2">
+			<div></div>
+		</div>
+		<div class="mose">
+			<a href=""><div>More&gt;</div></a>
+		</div>
+	</div>
+	<!--潮流在线内容-->
+	<div class="clzx">
+		<div class="clzx_top">
+		<a href="#">
+			<img src="img/clzx/clzx_1.png" >
+		</a>
+		</div>
+		<div class="clzx_bottom">
+			<div class="clzx_tu1"><a href="#"><img src="img/clzx/clzx_2.png" ></a></div>
+			<div class="clzx_tu2"><a href="#"><img src="img/clzx/clzx_3.png" ></a></div>
+		</div>
+	</div>
+	
+<!--新品上架-->
+	<!--新品上架专题-->
+	<div class="zhuanti">
+		<div class="heitiao1">
+			<div></div>
+		</div>
+		<div class="biaoti">
+			<p>新品上架</p>
+		</div>
+		<div class="heitiao2">
+			<div></div>
+		</div>
+		<div class="mose">
+			<a href=""><div>More&gt;</div></a>
+		</div>
+	</div>
+	<!--新品上架内容-->
+	<div class="xpsj">
+		<div class="xpsj_1">
+			<div class="xpsj_11"><a href=""><img src="img/xpsj/xpsj01_MADNESS.png" ></a></div>
+			<div class="xpsj_12"><a href=""><img src="img/xpsj/xpsj01_TYAKASHA.png" ></a></div>
+			<div  class="xpsj_13"><a href=""><img src="img/xpsj/xpsj01_VANS.png" ></a></div>
+		</div>
+		<div class="xpsj_1">
+			<div class="xpsj_11"><a href=""><img src="img/xpsj/xpsj02_TYAKASHA.png" ></a></div>
+			<div class="xpsj_12"><a href=""><img src="img/xpsj/xpsj02_LED'IN.png" ></a></div>
+			<div class="xpsj_13"><a href=""><img src="img/xpsj/xpsj02_Connive.png" ></a></div>
+		</div>
+		<div class="xpsj_1">
+			<div class="xpsj_11"><a href=""><img src="img/xpsj/xpsj03_VANS.png" ></a></div>
+			<div class="xpsj_12" ><a href=""><img src="img/xpsj/xpsj03_NUOGIC.png" ></a></div>
+			<div class="xpsj_13"><a href=""><img src="img/xpsj/xpsj03_Nike.png" ></a></div>
+		</div>
+		<div class="xpsj_1">
+			<div class="xpsj_11"><a href=""><img src="img/xpsj/xpsj04_Eone.png" ></a></div>
+			<div class="xpsj_12"><a href=""><img src="img/xpsj/xpsj04_SLOW.png" ></a></div>
+			<div class="xpsj_13"><a href=""><img src="img/xpsj/xpsj04_SLOW02.png" ></a></div>
+		</div>
+		<div class="xpsj_1">
+			<div class="xpsj_11"><a href=""><img src="img/xpsj/xpsj05_MYFUN01.png" ></a></div>
+			<div class="xpsj_12"><a href=""><img src="img/xpsj/xpsj05_MYFUN02.png" ></a></div>
+			<div class="xpsj_13"><a href=""><img src="img/xpsj/xpsj05_oammi.png" ></a></div>
+		</div>
+		<div class="xpsj_1">
+			<div class="xpsj_11"><a href=""><img src="img/xpsj/xpsj06_PINKORANGE.png" ></a></div>
+			<div class="xpsj_12"><a href=""><img src="img/xpsj/xpsj06_VANS.png" ></a></div>
+			<div class="xpsj_13"><a href=""><img src="img/xpsj/xpsj06_MYFUN.png" ></a></div>
+		</div>
+	</div>
+
+<!--精选品牌-->
+	<!--精选品牌-->
+	<div class="zhuanti">
+		<div class="heitiao1">
+			<div></div>
+		</div>
+		<div class="biaoti">
+			<p>精选品牌</p>
+		</div>
+		<div class="heitiao2">
+			<div></div>
+		</div>
+		<div class="mose">
+			<a href=""><div>More&gt;</div></a>
+		</div>
+	</div>
+	<!--精选品牌内容-->
+	<div class="jxpp">
+		<div class="jxpp_1">
+			<div class="jxpp_11"><a href=""><img src="img/jxpp/1.png" ></a></div>
+			<div class="jxpp_12"><a href=""><img src="img/jxpp/2.png" ></a></div>
+			<div class="jxpp_13"><a href=""><img src="img/jxpp/3.png" ></a></div>
+			<div class="jxpp_14"><a href=""><img src="img/jxpp/4.png" ></a></div>
+			<div class="jxpp_15"><a href=""><img src="img/jxpp/5.png" ></a></div>
+		</div>
+		<div class="jxpp_1">
+			<div class="jxpp_11"><a href=""><img src="img/jxpp/001.png" ></a></div>
+			<div class="jxpp_12"><a href=""><img src="img/jxpp/002.png"></a></div>
+			<div class="jxpp_13"><a href=""><img src="img/jxpp/003.png"></a></div>
+			<div class="jxpp_14"><a href=""><img src="img/jxpp/004.png"></a></div>
+			<div class="jxpp_15"><a href=""><img src="img/jxpp/005.png"></a></div>
+		</div>
+		<div class="jxpp_1">
+			<div class="jxpp_11"><a href=""><img src="img/jxpp/0001.png" ></a></div>
+			<div class="jxpp_12"><a href=""><img src="img/jxpp/0002.png" ></a></div>
+			<div class="jxpp_13"><a href=""><img src="img/jxpp/0003.png" ></a></div>
+			<div class="jxpp_14"><a href=""><img src="img/jxpp/0004.png" ></a></div>
+			<div class="jxpp_15"><a href=""><img src="img/jxpp/0005.png" ></a></div>
+		</div>
+	</div>
+	
+<div class="jxpp_2">
+		<div class="jxpp_3">
+			<a href="">
+			<div class="jxpp_4">
+				<img src="img/jxpp/3/c01.png" >
+				<div class="jxpp_5">
+					<img src="img/jxpp/3/logo_converse.png" >
+				</div>
+			</div>
+			</a>
+			<a href="">
+			<div class="jxpp_4" style="margin-top: -1px;">
+				<img src="img/jxpp/3/c02.png" >
+				<div class="jxpp_5">
+					<img src="img/jxpp/3/logo_vans.png" >
+				</div>
+			</div>
+			</a>
+			<a href="">
+			<div class="jxpp_4">
+				<img src="img/jxpp/3/c03.png" >
+				<div class="jxpp_5">
+					<img src="img/jxpp/3/logo_nike.png" >
+				</div>
+			</div>
+			</a>
+		
+		</div>
+	</div>
+<!--页尾背景-->
+
+
+
+<!--页脚-->
+<div class="heitiao">
+	<div class="yewei_beijing">
+	
+	</div>
+</div>
+<div class="yejiao">
+	<div class="yejiao_text">
+	<div class="yejiao1">
+		<div class="yejiao1_text">
+			<div class="tupian"><img src="images/zhengpin.png"></div>
+			<a href=""><div class="text"><a>100%</a><a style="color: white">&nbsp;正品保证</a></div></a>
+		</div>
+		<div class="yejiao1_text">
+			<div class="tupian"><img src="images/qitian.png"></div>
+			<a href=""><div class="text"><a>100%</a><a style="color: white">&nbsp;无理由保证退货</a></div></a>
+		</div>
+		<div class="yejiao1_text">
+			<div class="tupian"><img src="images/kuaijie.png"></div>
+			<a href=""><div class="text"><a>100%</a><a style="color: white">&nbsp;在线客服</a></div></a>
+		</div>
+	</div>
+	<div class="baitiao"></div>
+	<div class="yejiao2">
+		<div class="yejiao2_quyu">
+		<div class="yejiao_zhengwen">
+				<a href=""><p class="zhuti">新手专区</p></a>
+				<a href=""><p>注册登录</p></a>
+				<a href=""><p>购物结算</p></a>
+				<a href=""><p>下单支付</p></a>
+				<a href=""><p>收获评价</p></a>
+		</div>
+		<div class="yejiao_zhengwen">
+			<a href=""><p class="zhuti">会员中心</p></a>
+			<a href=""><p>会员制度</p></a>
+			<a href=""><p>会员优惠</p></a>
+			<a href=""><p>账户管理</p></a>
+			<a href=""><p>密码管理</p></a>
+		</div>
+		<div class="yejiao_zhengwen">
+				<a href=""><p class="zhuti">购物指南</p></a>
+				<a href=""><p>发票</p></a>
+				<a href=""><p>尺寸对照</p></a>
+				<a href=""><p>尺码解读</p></a>
+				<a href=""><p>商品咨询</p></a>
+		</div>
+		<div class="yejiao_zhengwen">
+				<a href=""><p class="zhuti">支付方式</p></a>
+				<a href=""><p>在线支付</p></a>
+				<a href=""><p>货到付款</p></a>
+				<a href=""><p>分期支付</p></a>
+				<a href=""><p>优惠劵</p></a>
+		</div>
+		<div class="yejiao_zhengwen">
+				<a href=""><p class="zhuti">配送方式</p></a>
+				<a href=""><p>配送说明</p></a>
+				<a href=""><p>运费说明</p></a>
+				<a href=""><p>验货签收</p></a>
+				<a href=""><p>收获样品</p></a>
+		</div>
+		<div class="yejiao_zhengwen">
+				<a href=""><p class="zhuti">售后服务</p></a>
+				<a href=""><p>退换货政策</p></a>
+				<a href=""><p>退换货流程</p></a>
+				<a href=""><p>投诉与建议</p></a>
+				<a href=""><p>在线客服</p></a>
+		</div>
+		</div>
+	</div>
+	<div class="baitiao1"></div>
+	<div class="yejiao3">
+		<div class="yejiao3_banquan1">
+			<a href="index.html"><p>返回首页</p></a>
+			<p>&#124;</p>
+			<a href=""><p>SETEMBER&nbsp;九月</p></a>
+			<p>&#124;</p>
+			<a href=""><p>联系我们</p></a>
+			<p>&#124;</p>
+			<a href=""><p>隐私条款</p></a>
+		</div>
+		<div class="yejiao3_banquan2">
+			<p>CopyRight&nbsp;2010-2018&nbsp;深圳你与我文化传播有限公司</p>
+			<p>&#124;</p>
+			<a href=""><p>版权所有</p></a>
+			<p>&#124;</p>
+			<p>经验许可证编号；广B-31245487</p>
+		</div>
+	</div>
+	</div>
+</div>
+
+<script src="js/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
+</body>
+</html>

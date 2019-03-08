@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.manage.mapper.ArticleMapper">
+
+	<select id="queryArticleListByHot" resultType="Article">
+		select *from article order by hot desc limit #{start},#{rows}
+	</select>
+	
+	<select id="queryArticleListByTime" resultType="Article">
+		select *from article order by created desc limit #{start},#{rows}
+	</select>
+	
+	<select id="selectAllCount" resultType="Integer">
+	select count(*) from article
+	</select>
+	
+	<select id="selectAllArticle" resultType="Article">
+	select * from article limit #{start},#{rows}
+	</select >
+	
+	
+	<!-- <update id="deleteArticle">
+	update article set status=0
+		where id =
+		<foreach collection="articleIds" open="(" close=")" item="articleId"
+			separator=",">
+			#{articleId}
+		</foreach>
+	</update> -->
+		
+</mapper>

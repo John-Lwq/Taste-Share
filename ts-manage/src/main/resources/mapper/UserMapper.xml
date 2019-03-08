@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.manage.mapper.UserMapper">
+
+	
+	<select id="queryUserList" resultType="User">
+		SELECT * FROM user WHERE
+		role_id IN (1,2) and status=1 limit
+		#{start},#{rows}
+	</select>
+
+	<select id="queryManager" resultType="User">
+		SELECT * FROM user WHERE
+		role_id NOT IN (1,2)
+	</select>
+
+	<update id="deleteUser">
+		update user set status=0 where user_id =
+			#{userId}
+	
+	</update>
+
+	<select id="selectAllCount" resultType="Integer">
+		select count(*) from user
+	</select>
+	
+
+	<select id="selectAllManageCount" resultType="Integer">
+		select count(*) from user  WHERE
+		role_id NOT IN (1,2)
+	</select>
+	
+	<select id="selectUserByUsername" resultType="String">
+		select password from user  WHERE username=#{username}
+	</select>
+	
+	
+</mapper>

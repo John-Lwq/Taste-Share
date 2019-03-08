@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.manage.mapper.RestaurantMapper">
+	<!-- 分页查询餐厅信息 -->
+	<select id="findRestaurantList" resultType="Restaurant">
+		select * from
+		restaurant where status=1 limit #{start},#{pageSize}
+	</select>
+
+	<!-- 批量更新餐厅状态 -->
+	<update id="updateByIds">
+		update restaurant set status=0
+		where restaurant_id =	#{restaurantId}
+	
+	</update>
+
+	<select id="queryRestaurantByType" resultType="Restaurant">
+
+		select * from
+		restaurant where type=#{typeId} limit #{start},#{rows}
+	</select>
+
+	<!-- 通过用户收藏热度来对餐厅排序 -->
+	<select id="queryRestaurantByHot" resultType="Restaurant">
+		SELECT *FROM
+		restaurant WHERE restaurant_id IN (
+		SELECT restaurant_id FROM (
+		SELECT
+		restaurant_id ,COUNT(*) num FROM
+		user_collect GROUP BY restaurant_id
+		ORDER BY num DESC )
+		temp) limit #{start},#{rows}
+	</select>
+
+
+	<select id="queryRestaurantByTime" resultType="Restaurant">
+		SELECT *FROM
+		restaurant ORDER BY created DESC limit #{start},#{rows}
+	</select>
+
+
+	<select id="queryCollectionRestaurantByUserId" resultType="Restaurant">
+		SELECT
+		*FROM restaurant WHERE restaurant_id IN(
+		SELECT restaurant_id
+		FROM
+		user_collect WHERE user_id = #{userId}) limit
+		#{start},#{rows}
+	</select>
+
+
+	<select id="queryRestaurantByUserId" resultType="Restaurant">
+		SELECT *FROM
+		restaurant WHERE user_id =#{userId} limit #{start},#{rows}
+	</select>
+
+	<select id="queryDescByOrderId" resultType="Desc">
+		SELECT *FROM
+		restaurant_desc WHERE restaurant_id IN (SELECT restaurant_id
+		FROM
+		restaurant WHERE user_id =#{userId}) limit #{start},#{rows}
+	</select>
+
+
+	<select id="selectAllCount" resultType="Integer">
+		select count(*) from
+		restaurant
+	</select>
+	<select id="queryRestaurantByRank" resultType="Restaurant">
+		SELECT *FROM restaurant WHERE restaurant_id IN(
+		SELECT restaurant_id FROM rank WHERE rank =1 or rank =2) limit
+		#{start},#{rows}
+	</select>
+	
+	
+	<select id="selectAllCountByTypeId" resultType="Integer">
+		select count(*) from
+		restaurant where type=#{typeId}
+	</select>
+	
+	<select id="selectRestaurant2" resultType="Restaurant">
+		SELECT *FROM
+		restaurant WHERE user_id =#{userId} 
+	</select>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
